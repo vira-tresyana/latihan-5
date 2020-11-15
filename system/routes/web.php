@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeControllers;
 use App\Http\Controllers\AuthControllers;
 use App\Http\Controllers\ProdukControllers;
 use App\Http\Controllers\KategoriControllers;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClientProdukController;
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,15 @@ Route::get('admin/kategori/{kategori}', [KategoriControllers::class, 'show']);
 Route::get('admin/kategori/{kategori}/edit', [KategoriControllers::class, 'edit']);
 Route::put('admin/kategori/{kategori}', [KategoriControllers::class, 'update']);
 Route::delete('admin/kategori/{kategori}', [KategoriControllers::class, 'destroy']);
+
+
+Route::get('admin/user', [UserController::class, 'index']);
+Route::get('admin/user/create', [UserController::class, 'create']);
+Route::post('admin/user', [UserController::class, 'store']);
+Route::get('admin/user/{user}', [UserController::class, 'show']);
+Route::get('admin/user/{user}/edit', [UserController::class, 'edit']);
+Route::put('admin/user/{user}', [UserController::class, 'update']);
+Route::delete('admin/user/{user}', [UserController::class, 'destroy']);
 
 
 Route::get('/', [ClientProdukController::class, 'index']);
