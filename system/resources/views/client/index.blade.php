@@ -53,8 +53,8 @@
           <li class="active"><a href="#header">Beranda</a></li>
           <li><a href="{{url('keranjang')}}">Keranjang</a></li>
           <li><a href="#team">Produk</a></li>
-          <li><a href="{{url('login')}}#portfolio">Login</a></li>
-          <li><a href="{{url('registrasi')}}#blog">Registrasi</a></li>
+          <li><a href="{{url('login')}}">Login</a></li>
+          <li><a href="{{url('registrasi')}}">Registrasi</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 

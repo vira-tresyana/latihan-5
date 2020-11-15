@@ -46,3 +46,6 @@ Route::delete('keranjang/{produk}', [ClientProdukController::class, 'destroy']);
 Route::get('login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('login', [AuthController::class, 'prosesLogin']);
 Route::get('logout', [AuthController::class, 'logout']);
+
+Route::get('registrasi', [AuthController::class, 'registrasi']);
+Route::post('registrasi', [AuthController::class, 'store']);
