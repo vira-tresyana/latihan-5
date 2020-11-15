@@ -20,7 +20,13 @@
           <img src="{{url('public')}}/img/vira.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Vira Tresyana</a>
+          <a href="#" class="d-block">
+            @if(Auth::check())
+            {{request()->user()->nama}}
+            @else
+              Silahkan login
+            @endif
+          </a>
         </div>
       </div>
 
@@ -71,13 +77,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('/login') }}" class="nav-link {{checkRouteActive('login')}}">
+                <a href="{{ url('login') }}" class="nav-link {{checkRouteActive('login')}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Login</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('/registrasi') }}" class="nav-link {{checkRouteActive('registrasi')}}">
+                <a href="{{ url('registrasi') }}" class="nav-link {{checkRouteActive('registrasi')}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Registrasi</p>
                 </a>

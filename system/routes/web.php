@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeControllers;
-use App\Http\Controllers\AuthControllers;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProdukControllers;
 use App\Http\Controllers\KategoriControllers;
 use App\Http\Controllers\UserController;
@@ -76,3 +76,6 @@ Route::get('keranjang/{produk}/edit', [ClientProdukController::class, 'edit']);
 Route::put('keranjang/{produk}', [ClientProdukController::class, 'update']);
 Route::delete('keranjang/{produk}', [ClientProdukController::class, 'destroy']);
 
+Route::get('login', [AuthController::class, 'showLogin']);
+Route::post('login', [AuthController::class, 'prosesLogin']);
+Route::get('logout', [AuthController::class, 'logout']);

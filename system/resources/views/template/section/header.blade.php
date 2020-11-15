@@ -29,7 +29,11 @@
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-        Vira Tresyana
+        @if(Auth::check())
+            {{request()->user()->nama}}
+            @else
+              Silahkan login
+            @endif
           <i class="far fa-user"></i>
           <span class="badge badge-warning navbar-badge"></span>
         </a>
