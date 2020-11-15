@@ -45,7 +45,7 @@
             
           </a>
           <div class="dropdown-divider"></div>
-          <a href="{{url('login')}}" class="dropdown-item">
+          <a href="{{url('logout')}}" class="dropdown-item">
             <i class="fas fa-users mr-2"></i>Logout
           </a>
           

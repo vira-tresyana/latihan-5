@@ -22,50 +22,17 @@ Route::get('/', function () {
     return view('client/index');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/index', function () {
-    return view('index');
-});
-
-Route::get('/registrasi', function () {
-    return view('registrasi');
-});
-
-Route::get('/template', function () {
-    return view('template.base');
-});
 
 Route::get('admin/beranda', [HomeControllers::class, 'showBeranda']);
 Route::get('admin/login', [AuthControllers::class, 'showLogin']);
 
-Route::get('admin/produk', [ProdukControllers::class, 'index']);
-Route::get('admin/produk/create', [ProdukControllers::class, 'create']);
-Route::post('admin/produk', [ProdukControllers::class, 'store']);
-Route::get('admin/produk/{produk}', [ProdukControllers::class, 'show']);
-Route::get('admin/produk/{produk}/edit', [ProdukControllers::class, 'edit']);
-Route::put('admin/produk/{produk}', [ProdukControllers::class, 'update']);
-Route::delete('admin/produk/{produk}', [ProdukControllers::class, 'destroy']);
+// Halaman Admin 
+Route::prefix('admin')->middleware('auth')->group(function(){
+Route::resource('produk', ProdukControllers::class);
+Route::resource('kategori', KategoriControllers::class);
+Route::resource('user', UserController::class);
 
-
-Route::get('admin/kategori', [KategoriControllers::class, 'index']);
-Route::get('admin/kategori/create', [KategoriControllers::class, 'create']);
-Route::post('admin/kategori', [KategoriControllers::class, 'store']);
-Route::get('admin/kategori/{kategori}', [KategoriControllers::class, 'show']);
-Route::get('admin/kategori/{kategori}/edit', [KategoriControllers::class, 'edit']);
-Route::put('admin/kategori/{kategori}', [KategoriControllers::class, 'update']);
-Route::delete('admin/kategori/{kategori}', [KategoriControllers::class, 'destroy']);
-
-
-Route::get('admin/user', [UserController::class, 'index']);
-Route::get('admin/user/create', [UserController::class, 'create']);
-Route::post('admin/user', [UserController::class, 'store']);
-Route::get('admin/user/{user}', [UserController::class, 'show']);
-Route::get('admin/user/{user}/edit', [UserController::class, 'edit']);
-Route::put('admin/user/{user}', [UserController::class, 'update']);
-Route::delete('admin/user/{user}', [UserController::class, 'destroy']);
+});
 
 
 Route::get('/', [ClientProdukController::class, 'index']);
@@ -76,6 +43,6 @@ Route::get('keranjang/{produk}/edit', [ClientProdukController::class, 'edit']);
 Route::put('keranjang/{produk}', [ClientProdukController::class, 'update']);
 Route::delete('keranjang/{produk}', [ClientProdukController::class, 'destroy']);
 
-Route::get('login', [AuthController::class, 'showLogin']);
+Route::get('login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('login', [AuthController::class, 'prosesLogin']);
 Route::get('logout', [AuthController::class, 'logout']);

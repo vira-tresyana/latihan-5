@@ -28,7 +28,7 @@ class ProdukControllers extends Controller{
 	}
 
 	function show(Produk $produk){
-		$data['produk'] = Produk::find($produk);
+		$data['produk'] = $produk;
 		return view('admin/produk.show', $data);
 		
 
